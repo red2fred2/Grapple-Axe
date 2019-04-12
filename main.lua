@@ -2,6 +2,7 @@
 
 --classes
 require 'CONSTANTS'
+require 'Settings'
 require 'Game'
 require 'Object'
 require 'Graphics'
@@ -10,6 +11,10 @@ require 'InputHandler'
 --------------------START--------------------
 
 function love.load()
+  --load settings
+  settings = Settings:new()
+
+  --start game
   game = Game:new()
 
   --world init

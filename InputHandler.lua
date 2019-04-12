@@ -11,6 +11,7 @@ InputHandler = Class:new()
 InputHandler.inputMode = 'keyboard'
 InputHandler.keysHeld = {}
 InputHandler.gamepads = nil
+InputHandler.gamepadsHeld = {}
 
 --------------------CONSTRUCTOR--------------------
 
@@ -32,11 +33,11 @@ function InputHandler:update(dt)
 end
 
 function InputHandler:startKeyboard(key, isrepeat)
-  InputHandler.keysHeld[key] = 0
+  self.keysHeld[key] = 0
 end
 
 function InputHandler:endKeyboard(key)
-  InputHandler.keysHeld[key] = nil
+  self.keysHeld[key] = nil
 end
 
 function InputHandler:startGamepad(joystick, button)
@@ -48,8 +49,9 @@ function InputHandler:endGamepad(joystick, button)
   local name = love.joystick.getName(joystick)
 end
 
----------------------------------------------------
-
 function InputHandler:gamepadChange()
-  InputHandler.gamepads = love.joystick.getJoysticks()
+  self.gamepads = love.joystick.getJoysticks()
+  for i, g in pairs(self.gamepads) do
+    self.gamepadsHeld[g.getName()]
+  end
 end
