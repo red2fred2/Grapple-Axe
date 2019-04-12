@@ -4,11 +4,11 @@ function love.conf(t)
     t.version = '11.2'
     t.console = false
     t.window.icon = nil
-    t.window.borderless = false
-    t.window.resizable = true
+    t.window.borderless = true
+    t.window.resizable = false
     t.window.fullscreen = true
     t.window.fullscreentype = 'desktop'
-    t.window.vsync = false
-    t.window.msaa = 0
+    t.window.vsync = true
+    t.window.msaa = 1
     t.window.highdpi = false
 end
