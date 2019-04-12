@@ -4,19 +4,20 @@ require 'Class'
 
 --------------------OBJECT--------------------
 
-Player = Class:new()
+Game = Class:new()
 
 --------------------VARIABLES--------------------
 
-Player.x = 100
-Player.y = 100
+Game.state = nil
+Game.objects = {}
 
 --------------------CONSTRUCTOR--------------------
 
-
-
+function Game:new()
+  return self
+end
 --------------------FUNCTIONS--------------------
 
-function Player:draw()
-  love.graphics.rectangle('fill', self.x, self.y, 100, 100)
+function Game:quit()
+  love.event.quit()
 end
