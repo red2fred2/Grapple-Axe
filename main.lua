@@ -1,16 +1,11 @@
 --------------------IMPORT--------------------
 
 --classes
+require 'CONSTANTS'
 require 'Game'
 require 'Object'
 require 'Graphics'
 require 'InputHandler'
-
---------------------CONSTANTS--------------------
-
-DEBUG = true
-meterPX = 64
-g = 9.81
 
 --------------------START--------------------
 
@@ -85,9 +80,9 @@ function love.keyreleased(key)
 end
 
 function love.joystickadded(joystick)
-  input:addGamepad(joystick)
+  input:gamepadChange()
 end
 
 function love.joystickremoved(joystick)
-  input:removeGamepad(joystick)
+  input:gamepadChange()
 end
