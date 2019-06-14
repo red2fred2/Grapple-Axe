@@ -19,3 +19,16 @@ function default(value, default)
     return value
   end
 end
+
+function changeMessage(msg)
+  print(msg)
+end
+
+function keyCheck(table)
+  for i, key in pairs(table) do
+    if love.keyboard.isDown(key) then
+      return true
+    end
+  end
+  return false
+end

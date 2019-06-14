@@ -2,7 +2,7 @@ function love.conf(t)
     t.identity = 'Grapple Axe'
     t.window.title = 'Grapple Axe'
     t.version = '11.2'
-    t.console = false
+    t.console = true
     t.window.icon = nil
     t.window.borderless = true
     t.window.resizable = false

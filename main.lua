@@ -11,6 +11,7 @@ require 'InputHandler'
 --------------------START--------------------
 
 function love.load()
+
   --load settings
   settings = Settings:new()
 
@@ -52,42 +53,4 @@ end
 
 function love.quit()
 
-end
-
---------------------CALLBACK FUNCTIONS--------------------
-
-function love.gamepadpressed(joystick, button)
-  input:startGamepad(joystick, button)
-end
-
-function love.gamepadreleased(joystick, button)
-  input:endGamepad(joystick, button)
-end
-
-function love.keypressed(key, scancode, isrepeat)
-  input:startKeyboard(key, isrepeat)
-
-  --if key == 'escape' then
-  --  love.event.quit('Player Exited')
-  --end
-  --if key == 'left' then
---    game.objects.triangle.body:applyForce(-400, 0)
---  end
---  if key == 'right' then
-  --  game.objects.triangle.body:applyForce(400, 0)
-  --end
-
-
-end
-
-function love.keyreleased(key)
-  input:endKeyboard(key)
-end
-
-function love.joystickadded(joystick)
-  input:gamepadChange()
-end
-
-function love.joystickremoved(joystick)
-  input:gamepadChange()
 end

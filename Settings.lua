@@ -1,7 +1,7 @@
 --------------------IMPORT--------------------
 
 require 'Class'
-json = require 'json'
+local json = require 'json'
 
 --------------------OBJECT--------------------
 
@@ -14,9 +14,14 @@ Settings.m = {}
 --------------------CONSTRUCTOR--------------------
 
 function Settings:new()
-  --load settings
-  local file = love.filesystem.read(settingsFile)
-  self.m = json.parse(file)
+  --set default settings if file doesn't exist
+--if love.filesystem.exists(settingsFile) then
+  --local file = love.filesystem.read(settingsFile)
+  --self.m = json.parse(file)
+--else
+  self.m = defaultSettings
+  self:save()
+--end
 
   return self
 end

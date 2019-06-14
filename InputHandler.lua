@@ -2,6 +2,8 @@
 
 require 'Class'
 
+local inspect = require('inspect')
+
 --------------------OBJECT--------------------
 
 InputHandler = Class:new()
@@ -29,29 +31,35 @@ function InputHandler:mappingStartup()
 end
 
 function InputHandler:update(dt)
-
-end
-
-function InputHandler:startKeyboard(key, isrepeat)
-  self.keysHeld[key] = 0
-end
-
-function InputHandler:endKeyboard(key)
-  self.keysHeld[key] = nil
-end
-
-function InputHandler:startGamepad(joystick, button)
-  local name = love.joystick.getName(joystick)
-
-end
-
-function InputHandler:endGamepad(joystick, button)
-  local name = love.joystick.getName(joystick)
-end
-
-function InputHandler:gamepadChange()
-  self.gamepads = love.joystick.getJoysticks()
-  for i, g in pairs(self.gamepads) do
-    self.gamepadsHeld[g.getName()]
+  for i, table in pairs(settings.m.controls) do
+    if keyCheck(table.triggers.keyboard) then
+      for j, event in pairs(table.effects) do
+        load(event)()
+      end
+    end
   end
+end
+
+function love.gamepadpressed(joystick, button)
+
+end
+
+function love.gamepadreleased(joystick, button)
+
+end
+
+function love.keypressed(key, scancode, isrepeat)
+
+end
+
+function love.keyreleased(key)
+
+end
+
+function love.joystickadded(joystick)
+  input:gamepadChange()
+end
+
+function love.joystickremoved(joystick)
+  input:gamepadChange()
 end
