@@ -31,9 +31,6 @@ defaultSettings = {
        triggers = {
          keyboard = {
            'escape'
-         },
-         other = {
-
          }
        }
     }
