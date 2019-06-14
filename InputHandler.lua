@@ -34,7 +34,7 @@ function InputHandler:update(dt)
   for i, table in pairs(settings.m.controls) do
     if keyCheck(table.triggers.keyboard) then
       for j, event in pairs(table.effects) do
-        load(event)()
+        load(event)() --REMOVE THIS NONSENSE IF I ADD ONLINE!
       end
     end
   end
